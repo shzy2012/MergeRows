@@ -1,10 +1,14 @@
 <script type="text/javascript">
         /*
-          merge table rows
-          cellNum :int  merge rows by this cell number
+          author: Joey
+          Date :2014-10-15
+          ----------------
+          Group table rows
+          tableId : table object
+          columnNum :int  Group rows by this column number
           mergeRows:array  some rows needed to merge
         */
-        function GroupCol(tableId, cellNum, mergeRows) {
+        function GroupTableCol(tableId, columnNum, mergeRows) {
             var table = $(tableId);
             var rows = table.find('tbody tr');
             var curentRow = [], nextRow = [], curentRowCell = '', nextRowCell = '';
@@ -14,8 +18,8 @@
                 curentRow = rows[i];
                 for (++i; i < rows.length; i++) {
                     nextRow = rows[i];
-                    curentRowCell = curentRow.children[cellNum];
-                    nextRowCell = nextRow.children[cellNum];
+                    curentRowCell = curentRow.children[columnNum];
+                    nextRowCell = nextRow.children[columnNum];
                     if (curentRowCell.innerText == nextRowCell.innerText) {
 
                         mergeRows.forEach(function (col) {
